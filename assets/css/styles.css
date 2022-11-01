@@ -1,0 +1,46 @@
+/* #0c0f12
+#495c6e
+#586e84
+#588478
+#496e64
+#0c1210
+ */
+
+header{
+    background-color: #0c0f12;
+}
+
+body{
+    background-color: #495c6e;
+}
+
+h1{
+    color: #588478
+}
+
+h2{
+    color: #0c0f12;
+}
+
+h3{
+    color: #0c1210
+}
+
+footer{
+    bottom: 0;
+    background-color: #0c1210;
+}
+
+.rs-github{
+    color: antiquewhite;
+}
+
+p{
+    /* color: aliceblue; */
+}
+
+img{
+    max-width: 800px;
+    max-height: 600px;
+    
+}
