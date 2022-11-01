@@ -91,16 +91,16 @@ function buscaPrecio(producto){
             return zanahoria;
         break;
 
-        case 'aji':
-            return aji;
+        case 'pimiento':
+            return pimiento;
         break;
 
         case 'berenjena':
             return berenjena;
         break;
 
-        case 'choclo':
-            return choclo;
+        case 'palta':
+            return palta;
         break;
 
         case 'ajo':
