@@ -11,6 +11,7 @@ header{
 }
 
 body{
+    min-width: 280px;
     background-color: #495c6e;
 }
 

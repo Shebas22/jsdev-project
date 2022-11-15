@@ -9,8 +9,13 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
     <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+    <!-- Scripts -->
+    <script defer src="./assets/js/class.producto.js"></script>
+    <script defer src="./assets/js/class.carrito.js"></script>
+    <script defer src="./assets/js/class.compra.js"></script>
     <script defer src="./assets/js/constantes.js"></script>
-    <script defer src="./assets/js/funciones.js"></script>
+    <script defer src="./assets/js/main.js"></script>
+    
     <title>Verduleria el gauchito</title>
 </head>
 <body class="h-100">
@@ -54,7 +59,9 @@
             <img class="col-12 col-lg-6"  src = "./assets/img/shop_2.svg" alt="SVG shop"/>
         </section>
         <!-- BOTON DE EJECUCION  -->
-        <button onclick="simularCompra()" type="button " class="btn btn-success">Simular compra</button>
+        <button onclick="comprar()" type="button " class="btn btn-success m-1">Comprar</button>
+        <button onclick="mostrarCarrito()" type="button " class="btn btn-success m-1">Mostrar carrito</button>
+        <button onclick="finalizarCompra()" type="button " class="btn btn-success m-1">Finalizar compra</button>
         <p> (Se utiliza atributo "onclick" de manera excepcional)</p>
     </main>
     <!-- FOOTER -->
