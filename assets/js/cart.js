@@ -10,7 +10,8 @@ const selectorTot = document.querySelector("div.finalizarCompra");
 const finalizarCompra = () => {
     //Instancia de Compra
     const compra = new Compra(carrito);
-    alerta(toast, 0, 'success', 'center', 'Compra Confirmada', compra.confirmarCompra());
+    let confirmar = compra.confirmarCompra();
+    alerta(toast, 0, confirmar.transaccion, 'center', 'Mensaje', confirmar.mensaje );
     carrito.vaciarCarrito();
     cargarCarrito(carrito.array());
     activeClickCartRemove();

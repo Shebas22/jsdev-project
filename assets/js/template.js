@@ -31,6 +31,7 @@ const cargarProductos = (producto)=>{
                             <div class="col-sm-6 m-auto">
                                 <h2 class="catalogo__card-h2">${producto.nombre.toUpperCase()}</h2>
                                 <p class="catalogo__card-p">por ${producto.frac}</p>
+                                <p class="catalogo__card-p"><b>$${producto.precio}</b></p>
                             </div>
                             <div class="col-sm-6 m-auto">
                                 <p>Cantidad</p>

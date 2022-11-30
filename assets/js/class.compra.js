@@ -14,9 +14,9 @@ class Compra {
     confirmarCompra() {
         let total = this.totalCompra();
         if (total) {
-            return `✅ Confirmamos el pago de $${this.totalCompra()} \n .Muchas gracias por su compra!`;
+            return {transaccion:'success',mensaje:`Confirmamos el pago de $${this.totalCompra()}. Muchas gracias por su compra!`};
         } else {
-            return "⛔️ Error en la transacción";
+            return {transaccion:'error',mensaje:"Error en la transacción"};
         }
     }
 }
