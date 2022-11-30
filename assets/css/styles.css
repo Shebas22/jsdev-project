@@ -10,10 +10,27 @@ header{
     background-color: #0c0f12;
 }
 
+.header_logo{
+    width: 6rem; 
+    /* height: 70; */
+    margin: 0 20px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+}
+
+.nav_icon{
+    padding: 10px;    
+    display: inline-block;
+    width: 60px;
+}
+
 body{
-    min-width: 280px;
+    min-width: 368px;
     background-color: #495c6e;
 }
+
 
 h1{
     color: #588478
@@ -43,5 +60,41 @@ p{
 img{
     max-width: 800px;
     max-height: 600px;
+    
+}
+
+header{
+    display: flex;
+}
+
+.catalogo__card{
+    background-color: transparent;
+}
+
+.catalogo__card-img{
+    max-width: 150px; 
+    height: auto;
+}
+
+.catalogo__card-p{
+    display: block;
+}
+
+.catalogo__card-h2{
+    display: block;
+}
+
+.table>:not(caption)>*>*{
+    border-bottom-width: 0px !important;
+}
+
+@media (max-width: 576px) {
+    .header__comp-title{
+        display: none;
+    }
+    
+    .catalogo__card-value{
+        /* display: block !important; */
+    }
     
 }

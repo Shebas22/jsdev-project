@@ -1,0 +1,102 @@
+<!DOCTYPE html5>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <link rel="stylesheet" href="../assets/css/styles.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+        <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script src="../assets/js/catalogo.js"></script>
+        <script src="../assets/js/class.compra.js"></script>
+        <script src="../assets/js/class.carrito.js"></script>
+        <script src="../assets/js/template.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script defer src="../assets/js/cart.js"></script>
+
+        
+        <title>Verduleria el gauchito</title>
+    </head>
+<body class="h-100">
+    <!-- HEADER -->
+    <header class="p-4 text-primary header">
+        <div class="container-xxl d-flex justify-content-between header__comp">
+                <a href="../index.html"><img class="header_logo p-1" src="../assets/img/portada1.jpg" alt="shop"></a>
+                <h1 class="h-1 m-auto text-center header__comp-title m-auto">El Gauchito - Frutas y Verduras</h1>
+
+            <nav class=" d-flex align-middle align-items-center p-1">
+                <!-- <a href="./pages/shop.html"><span class="nav_icon">👜</span></a>
+                <a href="./pages/cart.html"><span class="nav_icon">🛒</span></a> -->
+                <a href="../pages/shop.html"><img class="nav_icon " src="../assets/img/shop.png" alt="shop"></a>
+                <a href="../pages/cart.html"><img class="nav_icon " src="../assets/img/cart.png" alt="cart"></a>
+            </nav>
+            
+        </div>
+    </header>
+    <!-- MAIN -->
+    <main class="m-auto p-4">
+        <h1 class="container p-4 text-center text-dark">Carrito</h2>
+        <table class="table table-striped table-dark container text-center align-items-center align-middle">
+            <thead>
+                <tr class="text-success">
+                    <th scope="col" class="d-none d-md-block">Img</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Quitar</th>
+                </tr>
+            </thead>
+            <tbody class="listarCarrito">
+
+                <!-- <tr>
+                    <td class="d-none d-md-block"><img src="../assets/img/resource/banana.png" alt="banana" width="45px"></td>
+                    <td>Banana</td>
+                    <td>2</td>
+                    <td>$350</td>
+                    <td><button class="btn "><img src="../assets/img/remove-from-cart.png" alt="" width="30px"></button></td>
+                </tr> -->
+
+            </tbody>
+        </table>
+<!-- 
+        <div class="container d-inline-block">
+            <img class="" src="../assets/img/mp-logo.png" alt="" width="250px">
+        </div> -->
+
+
+        <div class="finalizarCompra container text-center">
+            <!-- <h2>Total del carrito</h2>
+            <table class="table table-success table-striped-columns p-4">
+                <tbody>
+                    <tr>
+                        <td>Subtotal</td>
+                        <td>$1000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-success">Finalizar compra</button> -->
+        </div>
+
+    </main>
+    <!-- FOOTER -->
+    <footer class="h-auto position-bottom w-100 p-4 mt-4">
+        <div class="container row gy-4 align-items-center m-auto">
+            <div class="col-12 col-sm-6 ">
+                <p class="text-light">👦Estudiante: Navarro Sebastián</p>
+                <p class="text-light">👨‍💻Comisión: 34095</p>
+            </div>
+            <div class="col-12 col-sm-6 text-center ">
+                <div class="d-flex justify-content-evenly m-auto p-2">
+                    <a href="https://github.com/Shebas22?tab=repositories" target="_blank" class="rs-github"><i class="bi bi-github fs-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

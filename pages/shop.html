@@ -1,0 +1,100 @@
+<!DOCTYPE html5>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <link rel="stylesheet" href="../assets/css/styles.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+        <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script src="../assets/js/catalogo.js"></script>
+        <script src="../assets/js/class.compra.js"></script>
+        <script src="../assets/js/class.carrito.js"></script>
+        <script src="../assets/js/template.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script defer src="../assets/js/shop.js"></script>
+        
+        <title>Verduleria el gauchito</title>
+    </head>
+    <body class="h-100">
+        <!-- HEADER -->
+        <header class="p-4 text-primary header">
+            <div class="container-xxl d-flex justify-content-between header__comp">
+                    <a href="../index.html"><img class="header_logo p-1" src="../assets/img/portada1.jpg" alt="shop"></a>
+                    <h1 class="h-1 m-auto text-center header__comp-title m-auto">El Gauchito - Frutas y Verduras</h1>
+
+                <nav class=" d-flex align-middle align-items-center p-1">
+                    <a href="../pages/shop.html"><img class="nav_icon " src="../assets/img/shop.png" alt="shop"></a>
+                    <a href="../pages/cart.html"><img class="nav_icon " src="../assets/img/cart.png" alt="cart"></a>
+                </nav>
+
+            </div>
+        </header>
+        <!-- MAIN -->
+        <main class="text-center p-4 m-auto">
+
+            <section class="catalogo container">
+                <h1 class="container p-4 text-center text-dark">Productos</h2>
+                <div class="filtro d-flex">
+                    
+                    <select class="form-select bg-dark text-light" aria-label="Default select example" id="dataCategory">
+                        <option value="" selected>Categoría</option>
+                        <option value="fruta">Fruta</option>
+                        <option value="verdura">Verdura</option>
+                    </select>
+                    
+
+                    <input class="form-control bg-dark text-light" list="datalistOptions" id="dataList" placeholder="Filtrar.." type="text">
+                    <datalist id="datalistOptions">
+
+                    </datalist>
+                </div>
+                
+                <div class="listarTienda">
+
+                </div>
+                <!-- <div class="container text-center p-4">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img class="p-2 img-fluid catalogo__card-img" src="../assets/img/resource/aji.png" alt="acelga">
+                        </div>
+                        <div class="col-sm-8 align-middle m-auto">
+                        <div class="row">
+                            <div class="col-sm-6 m-auto">
+                                <h2 class="catalogo__card-h2">Aji</h2>
+                                <p class="catalogo__card-p">Por Kg</p>
+                            </div>
+                            <div class="col-sm-6 m-auto">
+                                <p>Cantidad</p>
+                                <input class="m-auto text-center bg-dark text-light" type="number" min="0" max="100" step="1" value="0" />
+                                <button class="btn "><img src="../assets/img/add-to-cart.png" alt="" width="35px"></button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <hr> -->
+                
+            </section>
+        </main>
+        <!-- FOOTER -->
+        <footer class="h-auto position-bottom w-100 p-4 mt-4">
+            <div class="container row gy-4 align-items-center m-auto">
+                <div class="col-12 col-sm-6 ">
+                    <p class="text-light">👦Estudiante: Navarro Sebastián</p>
+                    <p class="text-light">👨‍💻Comisión: 34095</p>
+                </div>
+                <div class="col-12 col-sm-6 text-center ">
+                    <div class="d-flex justify-content-evenly m-auto p-2">
+                        <a href="https://github.com/Shebas22?tab=repositories" target="_blank" class="rs-github"><i class="bi bi-github fs-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
