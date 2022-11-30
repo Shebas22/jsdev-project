@@ -21,7 +21,7 @@ const cargarProductos = (producto)=>{
     if(resultado){
         valor = resultado.cantidad || '0';
     }
-    return `<div class="container text-center p-4">
+    return `<div class="container text-center p-4 animated fadeInUp">
                 <div class="row">
                     <div class="col-sm-4">
                         <img class="p-2 img-fluid catalogo__card-img" src=${producto.imagen} alt="${producto.nombre}">
@@ -86,15 +86,15 @@ const toast = (text, bgcolor)=> {
         }).showToast();
 }
 
-// const alerta = (toast, timer, icon, position, title, text )=> {
-//     Swal.fire({
-//         toast: toast || false, 
-//         position: position || 'center', // top-end, bottom-end, top-start, center
-//         icon: icon || 'info',     //success, warning, error, question, info
-//         title: title || '',
-//         text: text || '',
-//         showConfirmButton: true,
-//         confirmButtonText: 'Aceptar',
-//         timer: timer
-//     })
-// }
+const alerta = (toast, timer, icon, position, title, text )=> {
+    Swal.fire({
+        toast: toast || false, 
+        position: position || 'center', // top-end, bottom-end, top-start, center
+        icon: icon || 'info',     //success, warning, error, question, info
+        title: title || '',
+        text: text || '',
+        showConfirmButton: true,
+        confirmButtonText: 'Aceptar',
+        timer: timer
+    })
+}

@@ -10,15 +10,25 @@ const selectorTot = document.querySelector("div.finalizarCompra");
 const finalizarCompra = () => {
     //Instancia de Compra
     const compra = new Compra(carrito);
-    alert(`El costo total es de $ ${compra.totalCompra()}`)
-    let respuesta = confirm("¿Deseas confirmar tu pago?")
-        if (respuesta) {
-            alert(compra.confirmarCompra());
-            carrito.vaciarCarrito();
-            cargarCarrito(carrito.array());
-            activeClickCartRemove();
-        }
+    alerta(toast, 0, 'success', 'center', 'Compra Confirmada', compra.confirmarCompra());
+    carrito.vaciarCarrito();
+    cargarCarrito(carrito.array());
+    activeClickCartRemove();
 }
+
+// const finalizarCompra = () => {
+//     //Instancia de Compra
+//     const compra = new Compra(carrito);
+//     alerta(toast, 0, 'success', 'center', 'Compra Confirmada', compra.confirmarCompra() );
+//     alert(`El costo total es de $ ${compra.totalCompra()}`)
+//     let respuesta = confirm("¿Deseas confirmar tu pago?")
+//         if (respuesta) {
+//             alert(compra.confirmarCompra());
+//             carrito.vaciarCarrito();
+//             cargarCarrito(carrito.array());
+//             activeClickCartRemove();
+//         }
+// }
 
 // Carga y genera la tabla con los productos en el carrito
 const cargarCarrito = array => {

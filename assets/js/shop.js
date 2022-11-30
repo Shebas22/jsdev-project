@@ -10,7 +10,7 @@ const selectorFilterCategory = document.querySelector("#dataCategory");
 
 // Llamada del evento para filtrar los productos
 const updateValue = e => {
-    let valor = e.target.value;
+    let valor = e.target.value.toLowerCase();
     (valor)?cargarTienda(filtrar(catalogo,valor)):cargarTienda(catalogo);
     activeClickShopAdd();
 }
