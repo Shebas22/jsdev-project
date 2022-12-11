@@ -1,13 +1,31 @@
-/* #0c0f12
-#495c6e
-#586e84
-#588478
-#496e64
-#0c1210
- */
+h2{
+    color: #0c0f12;
+}
 
-header{
-    background-color: #0c0f12;
+h3{
+    color: #0c1210
+}
+
+header {
+    position: relative;
+    overflow: hidden;
+}
+
+header video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    z-index: -1;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+    position: relative;
+    z-index: 2;
 }
 
 .header_logo{
@@ -18,6 +36,12 @@ header{
     background-position: 50%;
     border-radius: 50%;
     background-size: 100% auto;
+}
+
+.header__comp-title{
+    font-size: 40px;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    color: #588478;
 }
 
 .nav_icon{
@@ -32,16 +56,8 @@ body{
 }
 
 
-h1{
-    color: #588478
-}
-
-h2{
-    color: #0c0f12;
-}
-
-h3{
-    color: #0c1210
+.error{
+    font-size: 20px;
 }
 
 footer{
@@ -51,10 +67,6 @@ footer{
 
 .rs-github{
     color: antiquewhite;
-}
-
-p{
-    /* color: aliceblue; */
 }
 
 img{
@@ -86,6 +98,10 @@ header{
 
 .table>:not(caption)>*>*{
     border-bottom-width: 0px !important;
+}
+
+.finalizarCompra{
+    max-width: 500px;
 }
 
 @media (max-width: 576px) {

@@ -1,24 +1,48 @@
 // DOM Shop
+const catalogo = [];
+const rutaServidor = 'https://6396269e90ac47c6807eea54.mockapi.io/api/bbdd/productos';
+const rutaLocalbbdd = '../bbdd/bbdd.json';
 
-const carrito = new Carrito(recuperarCarrito());
-const selectorShop = document.querySelector("div.listarTienda");
-const selectorFilter = document.querySelector("#datalistOptions");
-const selectorFilterInput = document.querySelector("#dataList");
-const selectorFilterCategory = document.querySelector("#dataCategory");
+// Obtener datos Servidor / BBDD local
+
+    fetch(rutaServidor) // rutaLocalbbdd o rutaServidor
+        .then((respuesta)=> productos = respuesta.json())
+        .then((productos) => catalogo.push(...productos))
+        .then(() => cargarTienda(catalogo))
+        .then(()=> activeClickShopAdd())
+        .catch(() => {
+                selectorShop.innerHTML = errorMensaje('servidor')   
+                    selectorShop.innerHTML += "Cargando productos desde la base de datos local"  
+                    fetch(rutaLocalbbdd) // rutaLocalbbdd o rutaServidor
+                    .then((respuesta)=> productos = respuesta.json())
+                    .then((productos) => catalogo.push(...productos))
+                    .then(() => cargarTienda(catalogo))
+                    .then(()=> activeClickShopAdd())
+                    .catch(error => selectorShop.innerHTML = errorMensaje('servidor'))
+                    resolve(productos);
+            })
+
 
 // Funciones de la pagina
 
 // Llamada del evento para filtrar los productos
 const updateValue = e => {
     let valor = e.target.value.toLowerCase();
-    (valor)?cargarTienda(filtrar(catalogo,valor)):cargarTienda(catalogo);
-    activeClickShopAdd();
+    if(valor){
+        cargarTienda(filtrar(catalogo,valor))
+        .then((result) => activeClickShopAdd())
+        .catch(error => selectorShop.innerHTML = errorMensaje('shop'));
+    }else{
+        cargarTienda(catalogo)
+        .then((result) => activeClickShopAdd())
+        .catch(error => selectorShop.innerHTML = errorMensaje('shop'));
+    }
 }
 
 const filtrar = (array,valor) => {
     let resultado = [];
     array.forEach(producto => {
-        if(JSON.stringify(producto).includes(valor)){
+        if(JSON.stringify(producto.nombre+producto.categoria).includes(valor)){
             resultado.push(producto);
         }
     });
@@ -32,17 +56,24 @@ selectorFilterCategory.addEventListener('change', updateValue);
 const cargarTienda = array => {
     let shopHTML ="";
     let filtroHTML="";
-    if(array.length >0){
-        array.forEach(producto =>{
-            shopHTML += cargarProductos(producto);
-            filtroHTML += `<option value="${producto.nombre}"></option>`;
-        });
-    }else{
-        shopHTML = `<h2 class="btn p-4 text-center">No se encuentran productos</h2>`;
-    }
-    selectorShop.innerHTML = shopHTML;
-    selectorFilter.innerHTML = filtroHTML;
+    selectorLoad.classList.remove("d-none");
+    return new Promise((resolve,reject)=> {
+            setTimeout(() => {
+                selectorLoad.classList.add("d-none");
+                if(array.length <= 0){
+                    reject();
+                }
+                array.forEach(producto =>{
+                    shopHTML += cargarProductos(producto);
+                    filtroHTML += `<option value="${producto.nombre}"></option>`;
+                });
+                selectorShop.innerHTML = shopHTML;
+                selectorFilter.innerHTML = filtroHTML;
+                resolve(true);
+            }, 500) 
+    })
 }
+
 
 // Asigna los eventos a los botones
 const activeClickShopAdd = () =>{
@@ -54,12 +85,10 @@ const activeClickShopAdd = () =>{
             let resultado = buscarProducto(e.currentTarget.id);
             resultado.cantidad = cantidad;
             (cantidad!==0)?carrito.agregarProducto(resultado):carrito.quitarProducto(resultado);
-            console.clear();
-            carrito.mostrarProductos();
+            // console.clear();
+            // carrito.mostrarProductos();
         });
     });
 }
 
-// Carga inicial de los productos
-cargarTienda(catalogo);
-activeClickShopAdd();
+

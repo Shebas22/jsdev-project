@@ -1,20 +1,6 @@
-// LocalStorage
-const recuperarCarrito = () =>{
-    return JSON.parse(localStorage.getItem("GauchitoCarrito")) || [];
-    }
+// Plantillas
 
-const guardarCarrito = () =>{
-    if(carrito.cantidadProductos() >= 0){
-        localStorage.setItem("GauchitoCarrito", JSON.stringify(carrito.array()));
-    }
-}
-
-// Funciones comunes a las páginas y plantillas
-
-const buscarProducto = (codigo) => catalogo.find(producto => producto.codigo === parseInt(codigo));
-const buscarCarrito = (codigo) => carrito.array().find(producto => producto.codigo === parseInt(codigo));
-
-
+// Carga productos del shop
 const cargarProductos = (producto)=>{
     let resultado = buscarCarrito(producto.codigo);
     let valor = 0;
@@ -46,7 +32,7 @@ const cargarProductos = (producto)=>{
     
 }
 
-
+// Carga productos del carrito
 const cargarTabla = (producto)=>{
     return `<tr>
                 <td class="d-none d-md-block"><img src=${producto.imagen} alt=${producto.nombre} width="45px"></td>
@@ -58,8 +44,9 @@ const cargarTabla = (producto)=>{
     
 }
 
+// Carga apartado de finalizar compra
 const cargarCompra = (total) => {
-    return `<div class="finalizarCompra container text-center">
+    return `<div class="finalizarCompra container text-center p-4">
                 <h2>Total del carrito</h2>
                 <table class="table table-success table-striped-columns p-4">
                     <tbody>
@@ -70,32 +57,14 @@ const cargarCompra = (total) => {
                     </tbody>
                 </table>
                 <button class="btn btn-success finalizar">Finalizar compra</button>
+                <button class="btn btn-warning vaciar">Vaciar carrito</button>
             </div>`;
 }
 
-
-// Alertas toastify
-const toast = (text, bgcolor)=> {
-    Toastify({
-        text: text,
-        duration: 3000,
-        close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: { background: bgcolor || 'green', fontSize: '24px'}
-        }).showToast();
-}
-
-const alerta = (toast, timer, icon, position, title, text )=> {
-    Swal.fire({
-        toast: toast || false, 
-        position: position || 'center', // top-end, bottom-end, top-start, center
-        icon: icon || 'info',     //success, warning, error, question, info
-        title: title || '',
-        text: text || '',
-        showConfirmButton: true,
-        confirmButtonText: 'Aceptar',
-        timer: timer
-    })
+// Mensajes de error
+const errorMensaje = (valor) => {
+    const error = { servidor: `<h2 class="p-4 text-center error text-dark">😰 Error al cargar los datos del servidor</h2>`,
+                    shop: `<h2 class="p-4 text-center error text-dark">🥱 No encontramos productos disponibles</h2>`,
+                    cart: `<h2 class="p-4 text-center error text-dark">🥱 No encontramos productos en el carrito</h2>`}
+    return error[valor];
 }

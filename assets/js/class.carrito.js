@@ -5,21 +5,22 @@ class Carrito{
         this.productos = productos;
     }
     
-        // Vacia carrito
-        vaciarCarrito(){
-            this.productos.length = 0;
-            guardarCarrito();
-            toast(`Se vació el carrito`);
-        }
+    // Vacia carrito
+    vaciarCarrito(){
+        this.productos.length = 0;
+        guardarCarrito();
+        toast(`Se vació el carrito`);
+    }
 
     // Agrega productos al carrito, si ya se encuentra modifica la cantidad del mismo
     agregarProducto(producto) {
         let index = this.productos.findIndex(valor => valor.codigo === producto.codigo);
         if(index < 0){
             this.productos.push(producto);
-            toast(`Se agregó ${producto.nombre} al carrito`);
+            toast(`🟢 Se agregó ${producto.nombre} al carrito`);
         }else{
             this.productos[index].cantidad = producto.cantidad;
+            toast(`🟡 Se actualizó ${producto.nombre} del carrito`);
         }
         guardarCarrito();
     }
@@ -29,13 +30,14 @@ class Carrito{
         let index = this.productos.findIndex(valor => valor.codigo === producto.codigo);
         if(index >= 0){
             this.productos.splice(index,1);
-            toast(`Se quitó ${producto.nombre} del carrito`);
+            toast(`🟠 Se quitó ${producto.nombre} del carrito`);
         }
         guardarCarrito();
     }
 
     // Muestra contenido del carrito en consola
     mostrarProductos(){
+        console.clear();
         if (this.productos.length > 0) {
             console.table(this.productos);
             return this.productos;

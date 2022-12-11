@@ -1,67 +1,83 @@
-// DOM Cart
-
-const carrito = new Carrito(recuperarCarrito());
-const selectorCart = document.querySelector("tbody.listarCarrito");
-const selectorTot = document.querySelector("div.finalizarCompra");
+// Cambio de tema de sweetalert
+{
+    const ss = document.createElement('link');
+    ss.rel = "stylesheet";
+    ss.href = "//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css";
+    document.head.appendChild(ss);
+}
 
 // Funciones de la pagina
+
+// Cargar carrito
+const actualizarTabla = () =>{
+    cargarCarrito(carrito.array())
+    .then((result) => activeClickCartRemove())
+    .catch(error =>  selectorError.innerHTML = errorMensaje('cart'));
+}
+
+
+// Vaciar carrito
+const vaciarCarrito = () =>{
+    carrito.vaciarCarrito();
+    actualizarTabla();
+}
+
 
 // Finalizar la compra
 const finalizarCompra = () => {
     //Instancia de Compra
     const compra = new Compra(carrito);
-    let confirmar = compra.confirmarCompra();
-    alerta(toast, 0, confirmar.transaccion, 'center', 'Mensaje', confirmar.mensaje );
-    carrito.vaciarCarrito();
-    cargarCarrito(carrito.array());
-    activeClickCartRemove();
+    let estado = compra.comprar('finalizar');
+    alerta('', '', estado.transaccion, '', estado.titulo, estado.mensaje,true )
+    .then((result) => {
+        if (result.isConfirmed) {
+            estado = compra.comprar('confirmar')
+            alerta('', '', estado.transaccion, '', estado.titulo, estado.mensaje,'')
+            .then((result)=>{
+                vaciarCarrito();
+            })
+        }
+    })
 }
-
-// const finalizarCompra = () => {
-//     //Instancia de Compra
-//     const compra = new Compra(carrito);
-//     alerta(toast, 0, 'success', 'center', 'Compra Confirmada', compra.confirmarCompra() );
-//     alert(`El costo total es de $ ${compra.totalCompra()}`)
-//     let respuesta = confirm("¿Deseas confirmar tu pago?")
-//         if (respuesta) {
-//             alert(compra.confirmarCompra());
-//             carrito.vaciarCarrito();
-//             cargarCarrito(carrito.array());
-//             activeClickCartRemove();
-//         }
-// }
 
 // Carga y genera la tabla con los productos en el carrito
 const cargarCarrito = array => {
     let cartHTML ="";
-    if(array.length >0){
-        array.forEach(producto => cartHTML += cargarTabla(producto));
-        selectorTot.innerHTML = cargarCompra(carrito.totalCarrito());
-        const selectorEnd = document.querySelector("button.finalizar");
-        selectorEnd.addEventListener('click',finalizarCompra);
-    }else{
-        cartHTML = `<h2 class="btn p-4 text-center">No hay productos en el carrito</h2>`;
-        selectorTot.innerHTML = "";
-    }
-    selectorCart.innerHTML = cartHTML;
+    selectorLoad.classList.remove("d-none");
+    return new Promise((resolve,reject)=> {
+            setTimeout(() => {
+                selectorLoad.classList.add("d-none");
+                if(array.length > 0){
+                    array.forEach(producto => cartHTML += cargarTabla(producto));
+                    selectorTot.innerHTML = cargarCompra(carrito.totalCarrito());
+                    const selectorEnd = document.querySelector("button.finalizar");
+                    const selectorVac = document.querySelector("button.vaciar");
+                    selectorEnd.addEventListener('click',finalizarCompra);
+                    selectorVac.addEventListener('click',vaciarCarrito);
+                }else{
+                    selectorTot.innerHTML = "";
+                    reject();
+                }
+                selectorCart.innerHTML = cartHTML;
+                resolve(true);
+            }, 500) 
+    })
 }
+
 
 // Asigna los botones
 const activeClickCartRemove = () =>{
     const addButton = document.querySelectorAll("button.btn.cart-remove")
     addButton.forEach(btn => {
         btn.addEventListener("click", (e)=>{
-            let resultado = buscarProducto(e.currentTarget.id);
+            let resultado = buscarCarrito(e.currentTarget.id);
             carrito.quitarProducto(resultado);
-            console.clear();
-            carrito.mostrarProductos();
-            cargarCarrito(carrito.array());
-            activeClickCartRemove();
+            actualizarTabla();
         });
     });
 }
 
 
 // Cargar la tabla con los productos del carrito
-cargarCarrito(carrito.array());
-activeClickCartRemove();
+actualizarTabla();
+
