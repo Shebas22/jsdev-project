@@ -56,8 +56,8 @@ const cargarCompra = (total) => {
                         </tr>
                     </tbody>
                 </table>
-                <button class="btn btn-success finalizar">Finalizar compra</button>
-                <button class="btn btn-warning vaciar">Vaciar carrito</button>
+                <button class="btn btn-success finalizar m-2">Finalizar compra</button>
+                <button class="btn btn-warning vaciar m-2">Vaciar carrito</button>
             </div>`;
 }
 

@@ -18,9 +18,9 @@ const buscarProducto = (codigo) => catalogo.find(producto => producto.codigo ===
 
 const buscarCarrito = (codigo) => carrito.array().find(producto => producto.codigo === parseInt(codigo));
 
-// Alertas
+// ALERTAS
 
-const toast = (text, bgcolor)=> {
+const toast = (text)=> {
     Toastify({
         text: text,
         duration: 3000,

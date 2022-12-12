@@ -1,7 +1,9 @@
 # Versionado 🖍
 
-_1. Primer entrega: simulador de compra online e-comerce. variables y funciones_
-_2. Segunda entrega: simulador de compra online e-comerce. variables , funciones, constantes, clases, métodos y objetos_
+_1. Primer entrega: Simulador de compra online e-comerce. Variables y Funciones_
+_2. Segunda entrega: clases, métodos y objetos_
+_3. Tercera entrega: DOM, Eventos, Storage y JSON_
+_*. Entrega Final: Librerias, promesas, Servidor_
 
 
 # Proyecto curso JavaScript CODERHOUSE
@@ -11,9 +13,9 @@ _Repositorio dedicado al versionado de mi proyecto en el curso de Desarrollo Web
 
 ### Instalación 🔧
 
-_Puedes descargar los archivos comprimidos y luego extraerlos localmente, solo resta ejecutar el index.html con tu navegador favorito_
-_El archivo main contine la funciones principales de la página, pudiendose ejecutar directamente desde consola: comprar() ; mostrarCarrito(); finalizarCompra()._
-_Tambien se agregó de manera excepcional botones html con atributo OnClick, con los que se puede ejecutar las funciones anteriormente descritas_
+_Puedes descargar los archivos comprimidos y luego extraerlos localmente, solo resta ejecutar el index.html con tu navegador favorito._
+
+_Los productos de la tienda se agregan al carrito, accediendo al mismo podemos visualizar los productos, quitarlos, vaciar el carrito y finalizar la compra._
 
 
 ## Construido con 🛠️
@@ -23,7 +25,7 @@ _Tambien se agregó de manera excepcional botones html con atributo OnClick, con
 
 ## Autor ✒️
 
-* **Navarro Sebastián** - *Trabajo Inicial* - [Shebas22](https://github.com/Shebas22)
+* **Navarro Sebastián** - *Trabajo Final* - [Shebas22](https://github.com/Shebas22)
 
 
 
